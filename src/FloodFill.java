@@ -1,5 +1,6 @@
 //class princioal que escolhe o medoto de fila ou pilha
 import java.awt.Color;
+
 public class FloodFill {
     public static void preencherComPilha(Imagem imagem, int x, int y, Color novaCor) {
         int largura = imagem.getLargura();
@@ -7,7 +8,7 @@ public class FloodFill {
         Color corOriginal = imagem.getCor(x, y);
         if (corOriginal.equals(novaCor)) return;
         boolean[][] visitado = new boolean[largura][altura]; // controle de pixels visitados
-        MinhaPilha pilha = new MinhaPilha(largura * altura);
+        MinhaPilha pilha = new MinhaPilha();
         pilha.push(new Ponto(x, y));
         int contador = 0; // para nomear os arquivos
         while (!pilha.isEmpty()) {
@@ -18,7 +19,7 @@ public class FloodFill {
             if (!atual.equals(corOriginal)) continue;
             imagem.setCor(p.x, p.y, novaCor);
             visitado[p.x][p.y] = true;
-            // Salvar a cada 20 pixels modificados
+            // Salvar
             if (contador % 1 == 0) {
                 try {
                     imagem.salvarSemFechar("pilha_frame_" + String.format("%04d", contador) + ".png");
@@ -39,13 +40,14 @@ public class FloodFill {
             System.out.println("Erro ao salvar imagem final.");
         }
     }
+
     public static void preencherComFila(Imagem imagem, int x, int y, Color novaCor) {
         int largura = imagem.getLargura();
         int altura = imagem.getAltura();
         Color corOriginal = imagem.getCor(x, y);
         if (corOriginal.equals(novaCor)) return;
         boolean[][] visitado = new boolean[largura][altura];
-        MinhaFila fila = new MinhaFila(largura * altura);
+        MinhaFila fila = new MinhaFila();
         fila.enqueue(new Ponto(x, y));
         int contador = 0;
         while (!fila.isEmpty()) {

@@ -1,34 +1,49 @@
 //Minha fila circular utilizando um array estático :(
 public class MinhaFila {
-    private Ponto[] elementos;
-    private int inicio, fim, tamanho;
 
-    public MinhaFila(int capacidade) {
-        elementos = new Ponto[capacidade];
-        inicio = 0;
-        fim = 0;
-        tamanho = 0;
+    private static class Node {
+        Ponto elemento;
+        Node proximo;
+
+        Node(Ponto elemento) {
+            this.elemento = elemento;
+            this.proximo = null;
+        }
+    }
+
+    private Node inicio;
+    private Node fim;
+
+    public MinhaFila() {
+        inicio = null;
+        fim = null;
     }
 
     public void enqueue(Ponto p) {
-        if (tamanho < elementos.length) {
-            elementos[fim] = p;
-            fim = (fim + 1) % elementos.length;
-            tamanho++;
+        Node novo = new Node(p);
+        if (isEmpty()) {
+            inicio = novo;
+            fim = novo;
+        } else {
+            fim.proximo = novo;
+            fim = novo;
         }
     }
 
     public Ponto dequeue() {
-        if (!isEmpty()) {
-            Ponto p = elementos[inicio];
-            inicio = (inicio + 1) % elementos.length;
-            tamanho--;
-            return p;
+        if (isEmpty()) return null;
+
+        Ponto valor = inicio.elemento;
+        inicio = inicio.proximo;
+        if (inicio == null) {
+            fim = null;
         }
-        return null;
+        return valor;
     }
 
     public boolean isEmpty() {
-        return tamanho == 0;
+        return inicio == null;
     }
 }
+
+

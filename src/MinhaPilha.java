@@ -1,28 +1,37 @@
 //Minha Pilha aqui usamos o estilo último que entra é o primeiro a sair :p
 public class MinhaPilha {
-    private Ponto[] elementos;
-    private int topo;
-    public MinhaPilha(int capacidade) {
-        elementos = new Ponto[capacidade];
-        topo = -1;
+
+    private static class Node {
+        Ponto elemento;
+        Node anterior;
+
+        Node(Ponto elemento) {
+            this.elemento = elemento;
+            this.anterior = null;
+        }
+    }
+
+    private Node topo;
+
+    public MinhaPilha() {
+        topo = null;
     }
 
     public void push(Ponto p) {
-        if (topo < elementos.length - 1) //verifica se ainda tem espaco para add algo
-        {
-            topo++;
-            elementos[topo] = p;
-        }
+        Node novo = new Node(p);
+        novo.anterior = topo;
+        topo = novo;
     }
 
     public Ponto pop() {
-        if (!isEmpty()) {
-            return elementos[topo--];
-        }
-        return null;
+        if (isEmpty()) return null;
+
+        Ponto valor = topo.elemento;
+        topo = topo.anterior;
+        return valor;
     }
 
     public boolean isEmpty() {
-        return topo == -1;
+        return topo == null;
     }
 }

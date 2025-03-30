@@ -13,7 +13,6 @@ import java.util.Comparator;
 import javax.imageio.ImageTypeSpecifier;
 
 public class GifMaker {
-
     public static void gerarGif(String pastaFrames, String nomeSaida, int delayMs, String prefixo) throws Exception {
         File dir = new File(pastaFrames + "/img_frame");
         File[] frames = dir.listFiles((d, name) -> name.endsWith(".png") && name.startsWith(prefixo));
@@ -24,9 +23,8 @@ public class GifMaker {
         }
 
         Arrays.sort(frames, Comparator.comparing(File::getName));
-
+        //configura o gif
         BufferedImage primeiroFrame = ImageIO.read(frames[0]);
-
         ImageWriter writer = ImageIO.getImageWritersBySuffix("gif").next();
         ImageOutputStream output = ImageIO.createImageOutputStream(new File(nomeSaida));
         writer.setOutput(output);
@@ -42,7 +40,7 @@ public class GifMaker {
 
             IIOMetadataNode root = new IIOMetadataNode(metaFormat);
             IIOMetadataNode gce = new IIOMetadataNode("GraphicControlExtension");
-
+            //configuralcoes
             gce.setAttribute("disposalMethod", "none");
             gce.setAttribute("userInputFlag", "FALSE");
             gce.setAttribute("transparentColorFlag", "FALSE");
@@ -51,6 +49,7 @@ public class GifMaker {
             root.appendChild(gce);
 
             if (i == 0) {
+                //pega o primeiro frame e diz que ele deve ter um loop
                 IIOMetadataNode appExtensions = new IIOMetadataNode("ApplicationExtensions");
                 IIOMetadataNode appExtension = new IIOMetadataNode("ApplicationExtension");
                 appExtension.setAttribute("applicationID", "NETSCAPE");
