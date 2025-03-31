@@ -1,24 +1,14 @@
 //Minha Pilha aqui usamos o estilo último que entra é o primeiro a sair :p
 public class MinhaPilha {
 
-    private static class Node {
-        Ponto elemento;
-        Node anterior;
-
-        Node(Ponto elemento) {
-            this.elemento = elemento;
-            this.anterior = null;
-        }
-    }
-
-    private Node topo;
+    private Node<Ponto> topo;
 
     public MinhaPilha() {
         topo = null;
     }
 
     public void push(Ponto p) {
-        Node novo = new Node(p);
+        Node<Ponto> novo = new Node<>(p);
         novo.anterior = topo;
         topo = novo;
     }
@@ -35,3 +25,4 @@ public class MinhaPilha {
         return topo == null;
     }
 }
+

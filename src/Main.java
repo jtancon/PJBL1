@@ -7,12 +7,12 @@ public class Main {
             // Cria a pasta "img" se ela não existir
             File pastaImg = new File("img");
             if (!pastaImg.exists()) pastaImg.mkdirs();
-            Imagem imgPilha = new Imagem("C:\\xampp\\htdocs\\PJBL1\\src\\entrada.png");
+            Imagem imgPilha = new Imagem("C:\\Users\\Joaot\\PJBL1\\src\\entrada.png");
             FloodFill.preencherComPilha(imgPilha, 32, 32, Color.blue);
             imgPilha.salvar("img/saida_pilha.png");
 
             // Versão com FILA
-            Imagem imgFila = new Imagem("C:\\xampp\\htdocs\\PJBL1\\src\\entrada.png");
+            Imagem imgFila = new Imagem("C:\\Users\\Joaot\\PJBL1\\src\\entrada.png");
             FloodFill.preencherComFila(imgFila, 32, 32, Color.CYAN);
             imgFila.salvar("img/saida_fila.png");
             GifMaker.gerarGif(".", "img/animacao_pilha.gif", 100, "pilha_frame_");

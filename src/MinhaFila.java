@@ -1,18 +1,8 @@
 //Minha fila circular utilizando um array estático :(
 public class MinhaFila {
 
-    private static class Node {
-        Ponto elemento;
-        Node proximo;
-
-        Node(Ponto elemento) {
-            this.elemento = elemento;
-            this.proximo = null;
-        }
-    }
-
-    private Node inicio;
-    private Node fim;
+    private Node<Ponto> inicio;
+    private Node<Ponto> fim;
 
     public MinhaFila() {
         inicio = null;
@@ -20,7 +10,7 @@ public class MinhaFila {
     }
 
     public void enqueue(Ponto p) {
-        Node novo = new Node(p);
+        Node<Ponto> novo = new Node<>(p);
         if (isEmpty()) {
             inicio = novo;
             fim = novo;
@@ -45,5 +35,4 @@ public class MinhaFila {
         return inicio == null;
     }
 }
-
 
