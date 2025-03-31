@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e998786a-94fc-4c82-b3fd-ac0c5d25842c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FloodFill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FloodFill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GifMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GifMaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MinhaFila.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinhaFila.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MinhaPilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinhaPilha.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,5 +60,16 @@
       <updated>1743352269698</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Imagem.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
